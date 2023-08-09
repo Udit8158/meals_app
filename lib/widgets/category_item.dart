@@ -5,9 +5,12 @@ class CategoryItem extends StatelessWidget {
   const CategoryItem({
     super.key,
     required this.categoryItemData,
+    required this.onPressCategoryItem,
   });
 
   final Category categoryItemData;
+
+  final void Function() onPressCategoryItem;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +21,7 @@ class CategoryItem extends StatelessWidget {
           .withOpacity(.8), // Set the desired shadow color
 
       child: InkWell(
-        onTap: () {},
+        onTap: onPressCategoryItem,
         borderRadius: BorderRadius.circular(16),
         child: Container(
           decoration: BoxDecoration(
